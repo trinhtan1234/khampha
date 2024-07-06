@@ -7,6 +7,7 @@ class LocationService {
     if (status == PermissionStatus.denied) {
       return Future.error('Location permission denied');
     } else if (status == PermissionStatus.permanentlyDenied) {
+      openAppSettings(); // Open app settings for the user to grant permission manually
       return Future.error('Location permission permanently denied');
     }
 
@@ -14,6 +15,7 @@ class LocationService {
     if (permission == LocationPermission.denied) {
       return Future.error('Location permission denied');
     } else if (permission == LocationPermission.deniedForever) {
+      openAppSettings(); // Open app settings for the user to grant permission manually
       return Future.error('Location permission permanently denied');
     }
 
